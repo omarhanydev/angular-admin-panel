@@ -1,0 +1,15 @@
+mat-toolbar {
+  --mat-toolbar-standard-height: 48px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+  background: #FFF;
+}
+
+:host {
+  &.fixed {
+    mat-toolbar {
+      position: fixed;
+      top: 0;
+      z-index: 150;
+    }
+  }
+}

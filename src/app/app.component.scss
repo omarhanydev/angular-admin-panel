@@ -1,0 +1,22 @@
+app-header,
+app-sidebar {
+  display: block;
+}
+
+app-header {
+  min-height: 48px;
+}
+
+app-sidebar {
+  min-height: calc(100vh - 48px);
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 48px;
+  z-index: 200;
+}
+
+.page {
+  min-height: calc(100vh - 48px);
+  padding-left: 250px;
+}

@@ -16,18 +16,33 @@ import { ProductsComponent } from './products/products.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { AvatarModule } from 'ngx-avatars';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, SidebarComponent, DashboardComponent, ProductsComponent, CategoriesComponent, LoginComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent,
+    DashboardComponent,
+    ProductsComponent,
+    CategoriesComponent,
+    LoginComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,
+    MatMenuModule,
+    AvatarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

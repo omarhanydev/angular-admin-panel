@@ -7,4 +7,14 @@
 <!--    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>-->
 <!--  </button>-->
   <span>Admin Panel</span>
+  <span class="header-spacer"></span>
+  <button class="header-btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <ngx-avatars size="35" name="John Doe"></ngx-avatars>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
 </mat-toolbar>

@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AvatarModule } from 'ngx-avatars';
 import { HttpClientModule } from '@angular/common/http';
+import { Error404Component } from './error-404/error-404.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     CategoriesComponent,
     LoginComponent,
     HomeComponent,
+    Error404Component,
   ],
   imports: [
     BrowserModule,

@@ -12,4 +12,11 @@ export class HeaderComponent {
   logout() {
     this.authService.logout();
   }
+
+  get user() {
+    if (this.authService.user) {
+      return this.authService.user;
+    }
+    return 'Admin';
+  }
 }

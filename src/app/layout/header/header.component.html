@@ -9,7 +9,7 @@
   <span>Admin Panel</span>
   <span class="header-spacer"></span>
   <button class="header-btn" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-    <ngx-avatars size="35" name="John Doe"></ngx-avatars>
+    <ngx-avatars size="35" [name]="user"></ngx-avatars>
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="logout()">

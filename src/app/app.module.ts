@@ -9,29 +9,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { HeaderComponent } from './header/header.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProductsComponent } from './products/products.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { AvatarModule } from 'ngx-avatars';
 import { HttpClientModule } from '@angular/common/http';
 import { Error404Component } from './error-404/error-404.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    Error404Component,
     HeaderComponent,
     SidebarComponent,
-    DashboardComponent,
-    ProductsComponent,
-    CategoriesComponent,
-    LoginComponent,
-    HomeComponent,
-    Error404Component,
   ],
   imports: [
     BrowserModule,

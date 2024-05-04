@@ -1,0 +1,15 @@
+<div class="login">
+  <form class="login-card" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h2>Welcome!</h2>
+    <p>Log in to your Account</p>
+    <app-form-group>
+      <app-input label="Username" [formControl]="username" [required]="true"></app-input>
+    </app-form-group>
+    <app-form-group>
+      <app-input label="Password" [formControl]="password" [required]="true" type="password"></app-input>
+    </app-form-group>
+    <button mat-flat-button color="primary" type="submit">
+      Login
+    </button>
+  </form>
+</div>

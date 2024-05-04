@@ -54,7 +54,9 @@ export class LoginComponent {
               String(response.error).slice(1)
             : null;
           if (message) {
-            this._snackBar.open(message);
+            this._snackBar.open(message, '', {
+              duration: 1200,
+            });
           }
         },
       });

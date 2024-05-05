@@ -1,1 +1,53 @@
-<p>dashboard works!</p>
+<div class="dashboard-widgets">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-6 dashboard-widget-col">
+        <div class="dashboard-widget dashboard-widget-static">
+          <div class="dashboard-widget-body">
+            <div>
+              <strong>{{ currentDate }}</strong>
+              <p>{{ currentDay }}</p>
+            </div>
+            <div><mat-icon matListItemIcon>schedule</mat-icon></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 dashboard-widget-col">
+        <div class="dashboard-widget dashboard-widget-clickable" routerLink="/products">
+          <div class="dashboard-widget-body">
+            <div>
+              <strong>{{ products.length }}</strong>
+              <p>Products</p>
+            </div>
+            <div>
+              <mat-spinner *ngIf="productsLoading" [diameter]="34"></mat-spinner>
+              <mat-icon *ngIf="!productsLoading" matListItemIcon>inventory</mat-icon>
+            </div>
+          </div>
+          <button class="dashboard-widget-action">
+            <span>View</span>
+            <span><mat-icon matListItemIcon>arrow_right_alt</mat-icon></span>
+          </button>
+        </div>
+      </div>
+      <div class="col-xl-3 dashboard-widget-col">
+        <div class="dashboard-widget dashboard-widget-clickable" routerLink="/categories">
+          <div class="dashboard-widget-body">
+            <div>
+              <strong>{{ categories.length }}</strong>
+              <p>Categories</p>
+            </div>
+            <div>
+              <mat-spinner *ngIf="categoriesLoading" [diameter]="34"></mat-spinner>
+              <mat-icon *ngIf="!categoriesLoading" matListItemIcon>category</mat-icon>
+            </div>
+          </div>
+          <button class="dashboard-widget-action">
+            <span>View</span>
+            <span><mat-icon matListItemIcon>arrow_right_alt</mat-icon></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

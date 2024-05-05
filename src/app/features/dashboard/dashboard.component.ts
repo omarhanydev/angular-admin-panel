@@ -17,46 +17,42 @@ export class DashboardComponent {
   ) {}
 
   ngOnInit() {
-    if (this.productsService.products.length == 0) {
-      this.productsService.productsLoading = true;
-      this.productsService.fetchProducts().subscribe({
-        next: (data: any) => {
-          this.productsService.products = data;
-          this.productsService.productsLoading = false;
-        },
-        error: (response: HttpErrorResponse) => {
-          const message = response.error
-            ? String(response.error).charAt(0).toUpperCase() +
-              String(response.error).slice(1)
-            : null;
-          if (message) {
-            this._snackBar.open(message, '', {
-              duration: 1200,
-            });
-          }
-        },
-      });
-    }
-    if (this.categoriesService.categories.length == 0) {
-      this.categoriesService.categoriesLoading = true;
-      this.categoriesService.fetchCategories().subscribe({
-        next: (data: any) => {
-          this.categoriesService.categories = data;
-          this.categoriesService.categoriesLoading = false;
-        },
-        error: (response: HttpErrorResponse) => {
-          const message = response.error
-            ? String(response.error).charAt(0).toUpperCase() +
-              String(response.error).slice(1)
-            : null;
-          if (message) {
-            this._snackBar.open(message, '', {
-              duration: 1200,
-            });
-          }
-        },
-      });
-    }
+    this.productsService.productsLoading = true;
+    this.productsService.fetchProducts().subscribe({
+      next: (data: any) => {
+        this.productsService.products = data;
+        this.productsService.productsLoading = false;
+      },
+      error: (response: HttpErrorResponse) => {
+        const message = response.error
+          ? String(response.error).charAt(0).toUpperCase() +
+            String(response.error).slice(1)
+          : null;
+        if (message) {
+          this._snackBar.open(message, '', {
+            duration: 1200,
+          });
+        }
+      },
+    });
+    this.categoriesService.categoriesLoading = true;
+    this.categoriesService.fetchCategories().subscribe({
+      next: (data: any) => {
+        this.categoriesService.categories = data;
+        this.categoriesService.categoriesLoading = false;
+      },
+      error: (response: HttpErrorResponse) => {
+        const message = response.error
+          ? String(response.error).charAt(0).toUpperCase() +
+            String(response.error).slice(1)
+          : null;
+        if (message) {
+          this._snackBar.open(message, '', {
+            duration: 1200,
+          });
+        }
+      },
+    });
   }
 
   get products(): any[] {

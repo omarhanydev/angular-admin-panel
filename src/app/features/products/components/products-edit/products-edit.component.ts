@@ -22,6 +22,7 @@ export class ProductsEditComponent {
   productLoading: boolean = true;
   editForm: FormGroup;
   categories: any[] = [];
+  categoriesLoading: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,6 +42,7 @@ export class ProductsEditComponent {
   }
 
   ngOnInit() {
+    this.productLoading = true;
     this.activatedRoute.params.subscribe((params) => {
       const id = params['id'];
       this.id = Number(id);
@@ -69,9 +71,11 @@ export class ProductsEditComponent {
         },
       });
     });
+    this.categoriesLoading = true;
     this.categoriesService.fetchCategories().subscribe({
       next: (data: any) => {
         this.categories = data;
+        this.categoriesLoading = false;
       },
       error: (response: HttpErrorResponse) => {
         const message = response.error

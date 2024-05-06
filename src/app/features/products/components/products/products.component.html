@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="col-lg-12">
-        <app-loading-spinner *ngIf="productsLoading && categoriesLoading"></app-loading-spinner>
+        <app-loading-spinner *ngIf="productsLoading || categoriesLoading"></app-loading-spinner>
         <div class="listing-filters" *ngIf="!productsLoading && !categoriesLoading">
           <form [formGroup]="filterForm">
             <div class="row">

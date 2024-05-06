@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 export class ProductsAddComponent {
   addForm: FormGroup;
   categories: any[] = [];
+  categoriesLoading: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,9 +38,11 @@ export class ProductsAddComponent {
   }
 
   ngOnInit() {
+    this.categoriesLoading = true;
     this.categoriesService.fetchCategories().subscribe({
       next: (data: any) => {
         this.categories = data;
+        this.categoriesLoading = false;
       },
       error: (response: HttpErrorResponse) => {
         const message = response.error

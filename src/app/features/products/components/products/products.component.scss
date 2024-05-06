@@ -34,16 +34,14 @@
     .thumb-wrapper {
       background-color: #EEEEEE;
       padding: 2px;
+      width: 74px;
+      height: 40px;
       border-radius: 8px;
       .thumb {
         display: block;
         position: relative;
-        &::before {
-          content: '';
-          display: block;
-          width: 100%;
-          padding-top: 75%;
-        }
+        width: 70px;
+        height: 36px;
         img {
           position: absolute;
           width: auto;

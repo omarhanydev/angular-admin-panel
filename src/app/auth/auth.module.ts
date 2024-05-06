@@ -5,21 +5,17 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormGroupComponent } from '../forms/form-group/form-group.component';
-import { InputComponent } from '../forms/input/input.component';
+import { AppFormsModule } from '../forms/forms.module';
 
 @NgModule({
-  declarations: [LoginComponent, FormGroupComponent, InputComponent],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MatSnackBarModule,
     MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
     AuthRoutingModule,
+    AppFormsModule,
   ],
 })
 export class AuthModule {}

@@ -17,6 +17,8 @@ import { ProductsEditComponent } from './products/components/products-edit/produ
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AppFormsModule } from '../forms/forms.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatDialogModule,
     MatTooltipModule,
+    AppFormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class FeaturesModule {}

@@ -13,10 +13,27 @@
         <div class="loading-spinner" *ngIf="productsLoading">
           <mat-spinner [diameter]="24"></mat-spinner>
         </div>
+        <div class="listing-filters" *ngIf="!productsLoading">
+          <form [formGroup]="filterForm">
+            <div class="row">
+              <div class="col-xl-4">
+                <app-form-group>
+                  <app-input label="Filter by Name" [control]="title"></app-input>
+                </app-form-group>
+              </div>
+              <div class="col-xl-4">
+                <app-form-group>
+                  <app-select [multiple]="true" label="Filter by Category" [control]="category" [options]="categories">
+                  </app-select>
+                </app-form-group>
+              </div>
+            </div>
+          </form>
+        </div>
         <div class="listing-table" *ngIf="!productsLoading">
-          <table mat-table [dataSource]="products">
+          <table mat-table [dataSource]="filteredProducts">
             <ng-container matColumnDef="image">
-              <th mat-header-cell *matHeaderCellDef>Image</th>
+              <th mat-header-cell width="107" *matHeaderCellDef>Image</th>
               <td mat-cell *matCellDef="let element">
                 <div class="thumb-wrapper">
                   <div class="thumb">

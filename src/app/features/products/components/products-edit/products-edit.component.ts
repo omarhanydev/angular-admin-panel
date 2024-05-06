@@ -46,11 +46,15 @@ export class ProductsEditComponent {
       this.id = Number(id);
       this.productsService.fetchProduct(id).subscribe({
         next: (data) => {
-          this.productLoading = false;
-          this.product = data;
-          delete this.product.id;
-          delete this.product.rating;
-          this.editForm.setValue(this.product);
+          if (data) {
+            this.productLoading = false;
+            this.product = data;
+            delete this.product.id;
+            delete this.product.rating;
+            this.editForm.setValue(this.product);
+          } else {
+            this.router.navigate(['404']);
+          }
         },
         error: (response: HttpErrorResponse) => {
           const message = response.error

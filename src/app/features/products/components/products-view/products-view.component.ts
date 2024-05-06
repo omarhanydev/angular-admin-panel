@@ -41,8 +41,12 @@ export class ProductsViewComponent {
       const id = params['id'];
       this.productsService.fetchProduct(id).subscribe({
         next: (data: any) => {
-          this.productLoading = false;
-          this.product = data;
+          if (data) {
+            this.productLoading = false;
+            this.product = data;
+          } else {
+            this.router.navigate(['404']);
+          }
         },
         error: (response: HttpErrorResponse) => {
           const message = response.error

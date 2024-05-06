@@ -16,6 +16,7 @@ export class CategoriesViewComponent {
     private categoriesService: CategoriesService,
     private snackBar: MatSnackBar,
     public dialog: MatDialog,
+    private router: Router,
     private activatedRoute: ActivatedRoute,
   ) {}
 
@@ -37,8 +38,12 @@ export class CategoriesViewComponent {
       this.title = name;
       this.categoriesService.fetchCategory(name).subscribe({
         next: (data: any) => {
-          this.categoryLoading = false;
-          this.category = data;
+          if (data) {
+            this.categoryLoading = false;
+            this.category = data;
+          } else {
+            this.router.navigate(['404']);
+          }
         },
         error: (response: HttpErrorResponse) => {
           const message = response.error

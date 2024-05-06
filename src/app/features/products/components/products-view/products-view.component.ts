@@ -51,7 +51,7 @@ export class ProductsViewComponent {
     this.productLoading = true;
     this.activatedRoute.params.subscribe((params) => {
       const id = params['id'];
-      this.productsService.getProduct(id).subscribe({
+      this.productsService.fetchProduct(id).subscribe({
         next: (data: any) => {
           this.productLoading = false;
           this.product = data;

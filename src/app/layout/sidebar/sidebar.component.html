@@ -1,14 +1,14 @@
 <mat-sidenav mode="side" opened>
   <mat-nav-list>
-    <a mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    <a (click)="toggleSidebar()" mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <mat-icon matListItemIcon>space_dashboard</mat-icon>
       Dashboard
     </a>
-    <a mat-list-item routerLink="/products" routerLinkActive="active">
+    <a (click)="toggleSidebar()" mat-list-item routerLink="/products" routerLinkActive="active">
       <mat-icon matListItemIcon>inventory</mat-icon>
       Products
     </a>
-    <a mat-list-item routerLink="/categories" routerLinkActive="active">
+    <a (click)="toggleSidebar()" mat-list-item routerLink="/categories" routerLinkActive="active">
       <mat-icon matListItemIcon>category</mat-icon>
       Categories
     </a>

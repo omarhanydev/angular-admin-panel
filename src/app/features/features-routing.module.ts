@@ -6,6 +6,7 @@ import { CategoriesComponent } from './categories/components/categories/categori
 import { ProductsAddComponent } from './products/components/products-add/products-add.component';
 import { ProductsViewComponent } from './products/components/products-view/products-view.component';
 import { ProductsEditComponent } from './products/components/products-edit/products-edit.component';
+import { CategoriesViewComponent } from './categories/components/categories-view/categories-view.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoriesComponent,
+  },
+  {
+    path: 'categories/:name',
+    component: CategoriesViewComponent,
   },
 ];
 

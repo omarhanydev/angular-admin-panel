@@ -15,7 +15,7 @@ export class ProductsService {
     return this.http.delete('https://fakestoreapi.com/products/' + id);
   }
 
-  getProduct(id: number) {
+  fetchProduct(id: number) {
     return this.http.get('https://fakestoreapi.com/products/' + id);
   }
 

@@ -44,7 +44,7 @@ export class ProductsEditComponent {
     this.activatedRoute.params.subscribe((params) => {
       const id = params['id'];
       this.id = Number(id);
-      this.productsService.getProduct(id).subscribe({
+      this.productsService.fetchProduct(id).subscribe({
         next: (data) => {
           this.productLoading = false;
           this.product = data;

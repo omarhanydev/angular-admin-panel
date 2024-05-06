@@ -1,0 +1,61 @@
+<div class="category-container">
+  <div class="container-fluid">
+    <div class="loading-spinner" *ngIf="categoryLoading">
+      <mat-spinner [diameter]="24"></mat-spinner>
+    </div>
+    <div *ngIf="!categoryLoading">
+      <div class="category-header">
+        <h1>{{ title.charAt(0).toUpperCase() + title.slice(1) }}</h1>
+      </div>
+      <div class="details-card" *ngIf="!categoryLoading">
+        <div class="row">
+          <div class="col-xl-12 details-col">
+            <strong class="details-label">Products</strong>
+            <div class="details-value">
+              <div class="listing-table">
+                <table mat-table [dataSource]="category">
+                  <ng-container matColumnDef="image">
+                    <th mat-header-cell width="107" *matHeaderCellDef>Image</th>
+                    <td mat-cell *matCellDef="let element">
+                      <div class="thumb-wrapper">
+                        <div class="thumb">
+                          <img [src]="element.image" loading="lazy" width="50" height="50" [alt]="element.title"/>
+                        </div>
+                      </div>
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.title }}
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="category">
+                    <th mat-header-cell *matHeaderCellDef>Category</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.category.charAt(0).toUpperCase() + element.category.slice(1) }}
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="rating">
+                    <th mat-header-cell *matHeaderCellDef>Rating</th>
+                    <td mat-cell *matCellDef="let element">
+                      {{ element.rating.rate }}/5
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef>Price</th>
+                    <td mat-cell *matCellDef="let element">
+                      ${{ element.price }}
+                    </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

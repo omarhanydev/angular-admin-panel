@@ -10,4 +10,8 @@ export class CategoriesService {
   fetchCategories() {
     return this.http.get('https://fakestoreapi.com/products/categories');
   }
+
+  fetchCategory(name: string) {
+    return this.http.get('https://fakestoreapi.com/products/category/' + name);
+  }
 }

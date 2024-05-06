@@ -1,1 +1,53 @@
-<p>categories works!</p>
+<div class="listing-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="listing-header">
+          <h1>Categories</h1>
+        </div>
+      </div>
+      <div class="col-xl-12">
+        <div class="loading-spinner" *ngIf="categoriesLoading">
+          <mat-spinner [diameter]="24"></mat-spinner>
+        </div>
+        <div class="listing-filters" *ngIf="!categoriesLoading">
+          <form [formGroup]="filterForm">
+            <div class="row">
+              <div class="col-xl-4">
+                <app-form-group>
+                  <app-input label="Filter by Name" [control]="title"></app-input>
+                </app-form-group>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="listing-table" *ngIf="!categoriesLoading">
+          <table mat-table [dataSource]="filteredCategories">
+            <ng-container matColumnDef="title">
+              <th width="100%" mat-header-cell *matHeaderCellDef>Name</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.charAt(0).toUpperCase() + element.slice(1) }}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let element">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <a mat-menu-item [routerLink]="'/categories/' + element">
+                    <mat-icon>visibility</mat-icon>
+                    <span>View</span>
+                  </a>
+                </mat-menu>
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

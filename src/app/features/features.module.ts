@@ -19,12 +19,14 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AppFormsModule } from '../forms/forms.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CategoriesViewComponent } from './categories/components/categories-view/categories-view.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ProductsComponent,
     CategoriesComponent,
+    CategoriesViewComponent,
     ProductsAddComponent,
     ProductsViewComponent,
     ProductsEditComponent,

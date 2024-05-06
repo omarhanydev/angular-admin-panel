@@ -13,4 +13,12 @@ export class ProductsService {
   fetchProducts() {
     return this.http.get('https://fakestoreapi.com/products');
   }
+
+  removeProduct(id: number) {
+    return this.http.delete('https://fakestoreapi.com/products/' + id);
+  }
+
+  getProduct(id: number) {
+    return this.http.get('https://fakestoreapi.com/products/' + id);
+  }
 }

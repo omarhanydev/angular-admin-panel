@@ -1,0 +1,61 @@
+<div class="product-container">
+  <div class="container-fluid">
+    <div class="loading-spinner" *ngIf="productLoading">
+      <mat-spinner [diameter]="24"></mat-spinner>
+    </div>
+    <div *ngIf="!productLoading">
+      <div class="product-header">
+        <h1>{{ product.title }}</h1>
+        <div class="product-actions">
+          <a mat-fab color="accent" matTooltip="Edit" [routerLink]="'/products/edit/' + product.id">
+            <mat-icon>edit</mat-icon>
+          </a>
+          <button mat-fab color="warn" matTooltip="Delete"
+                  (click)="openDeleteDialog(product.id, 'Are you sure that you want to delete this product?')">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="details-card">
+        <div class="row">
+          <div class="col-xl-4 details-col">
+            <strong class="details-label">Image</strong>
+            <div class="details-value">
+              <div class="thumb-wrapper">
+                <div class="thumb">
+                  <img [src]="product.image" loading="lazy" width="100" height="100" [alt]="product.title"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 details-col">
+            <strong class="details-label">Description</strong>
+            <div class="details-value">
+              <p>{{ product.description }}</p>
+            </div>
+          </div>
+          <div class="col-xl-4 details-col">
+            <strong class="details-label">Category</strong>
+            <div class="details-value">
+              <p>
+                {{ product.category.charAt(0).toUpperCase() + product.category.slice(1) }}
+              </p>
+            </div>
+          </div>
+          <div class="col-xl-4 details-col">
+            <strong class="details-label">Rating</strong>
+            <div class="details-value">
+              <p>{{ product.rating.rate }}/5 ({{ product.rating.count }} reviews)</p>
+            </div>
+          </div>
+          <div class="col-xl-4 details-col">
+            <strong class="details-label">Price</strong>
+            <div class="details-value">
+              <p>${{ product.price }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,9 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-xl-12">
-        <div class="loading-spinner" *ngIf="productLoading">
-          <mat-spinner [diameter]="24"></mat-spinner>
-        </div>
+        <app-loading-spinner *ngIf="productLoading"></app-loading-spinner>
         <div *ngIf="!productLoading">
           <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
             <div class="product-header">

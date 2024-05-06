@@ -21,7 +21,7 @@ export class LoginComponent {
     private router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
   ) {
     if (authService.isAuthenticated) {
       this.router.navigate(['']);
@@ -54,7 +54,7 @@ export class LoginComponent {
               String(response.error).slice(1)
             : null;
           if (message) {
-            this._snackBar.open(message, '', {
+            this.snackBar.open(message, '', {
               duration: 1200,
             });
           }

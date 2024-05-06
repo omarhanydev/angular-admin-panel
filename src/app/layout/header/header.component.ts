@@ -1,6 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
-import { DOCUMENT } from '@angular/common';
+import { LayoutService } from '../layout.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ import { DOCUMENT } from '@angular/common';
 export class HeaderComponent {
   constructor(
     private authService: AuthService,
-    @Inject(DOCUMENT) private document: Document,
+    private layoutService: LayoutService,
   ) {}
 
   logout() {
@@ -18,7 +18,7 @@ export class HeaderComponent {
   }
 
   toggleSidebar() {
-    this.document.body.classList.toggle('show-sidebar');
+    this.layoutService.toggle();
   }
 
   get user() {

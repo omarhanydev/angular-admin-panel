@@ -4,19 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-
-export interface Product {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  price: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+import { Product } from '../../../products/interfaces/product';
 
 @Component({
   selector: 'app-categories-view',
@@ -26,7 +14,7 @@ export interface Product {
 export class CategoriesViewComponent {
   constructor(
     private categoriesService: CategoriesService,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     public dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
   ) {}
@@ -58,7 +46,7 @@ export class CategoriesViewComponent {
               String(response.error).slice(1)
             : null;
           if (message) {
-            this._snackBar.open(message, '', {
+            this.snackBar.open(message, '', {
               duration: 1200,
             });
           }

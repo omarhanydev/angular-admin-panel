@@ -3,9 +3,7 @@ mat-sidenav {
   background-color: #fff;
   box-shadow: 0 50px 50px rgba(0, 0, 0, 0.1);
   overflow: auto;
-  @media (min-width: 768px) {
-    border-top: 2px solid #EEF5FF;
-  }
+  border-top: 2px solid #EEF5FF;
   mat-nav-list {
     &.mat-mdc-list-base.mat-mdc-list-base.mdc-list {
       padding: 16px;

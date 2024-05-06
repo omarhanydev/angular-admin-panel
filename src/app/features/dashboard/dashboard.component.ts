@@ -18,7 +18,7 @@ export class DashboardComponent {
   constructor(
     private productsService: ProductsService,
     private categoriesService: CategoriesService,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
   ) {}
 
   ngOnInit() {
@@ -34,7 +34,7 @@ export class DashboardComponent {
             String(response.error).slice(1)
           : null;
         if (message) {
-          this._snackBar.open(message, '', {
+          this.snackBar.open(message, '', {
             duration: 1200,
           });
         }
@@ -52,7 +52,7 @@ export class DashboardComponent {
             String(response.error).slice(1)
           : null;
         if (message) {
-          this._snackBar.open(message, '', {
+          this.snackBar.open(message, '', {
             duration: 1200,
           });
         }

@@ -29,7 +29,7 @@ export class ProductsEditComponent {
     private categoriesService: CategoriesService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
   ) {
     this.editForm = this.formBuilder.group({
       title: ['', Validators.required],
@@ -58,7 +58,7 @@ export class ProductsEditComponent {
               String(response.error).slice(1)
             : null;
           if (message) {
-            this._snackBar.open(message, '', {
+            this.snackBar.open(message, '', {
               duration: 1200,
             });
           }
@@ -75,7 +75,7 @@ export class ProductsEditComponent {
             String(response.error).slice(1)
           : null;
         if (message) {
-          this._snackBar.open(message, '', {
+          this.snackBar.open(message, '', {
             duration: 1200,
           });
         }
@@ -122,7 +122,7 @@ export class ProductsEditComponent {
                 String(response.error).slice(1)
               : null;
             if (message) {
-              this._snackBar.open(message, '', {
+              this.snackBar.open(message, '', {
                 duration: 1200,
               });
             }

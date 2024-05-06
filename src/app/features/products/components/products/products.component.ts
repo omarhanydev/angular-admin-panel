@@ -35,7 +35,7 @@ export class ProductsComponent {
   constructor(
     private productsService: ProductsService,
     private categoriesService: CategoriesService,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
   ) {
@@ -71,7 +71,7 @@ export class ProductsComponent {
             String(response.error).slice(1)
           : null;
         if (message) {
-          this._snackBar.open(message, '', {
+          this.snackBar.open(message, '', {
             duration: 1200,
           });
         }
@@ -91,7 +91,7 @@ export class ProductsComponent {
             String(response.error).slice(1)
           : null;
         if (message) {
-          this._snackBar.open(message, '', {
+          this.snackBar.open(message, '', {
             duration: 1200,
           });
         }
@@ -111,7 +111,7 @@ export class ProductsComponent {
         this.productsService.removeProduct(id).subscribe({
           next: (data: any) => {
             const message = data.title + ' - Deleted Successfully';
-            this._snackBar.open(message, '', {
+            this.snackBar.open(message, '', {
               duration: 1200,
             });
             this.reloadProducts();
@@ -123,7 +123,7 @@ export class ProductsComponent {
                 String(response.error).slice(1)
               : null;
             if (message) {
-              this._snackBar.open(message, '', {
+              this.snackBar.open(message, '', {
                 duration: 1200,
               });
             }

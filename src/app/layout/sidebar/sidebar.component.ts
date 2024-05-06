@@ -1,5 +1,6 @@
-import { Component, Inject, ViewEncapsulation } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, ViewChild, ViewEncapsulation } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { LayoutService } from '../layout.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,8 +9,27 @@ import { DOCUMENT } from '@angular/common';
   encapsulation: ViewEncapsulation.None,
 })
 export class SidebarComponent {
-  constructor(@Inject(DOCUMENT) private document: Document) {}
-  toggleSidebar() {
-    this.document.body.classList.toggle('show-sidebar');
+  screenWidth: number;
+
+  @ViewChild('sidenav', { static: true }) public sidenav:
+    | MatSidenav
+    | undefined;
+
+  constructor(private layoutService: LayoutService) {
+    this.screenWidth = window.innerWidth;
+    window.onresize = () => {
+      this.screenWidth = window.innerWidth;
+    };
+  }
+  ngOnInit() {
+    if (this.sidenav) {
+      this.layoutService.setSidenav(this.sidenav);
+    }
+  }
+
+  toggleSidenav() {
+    if (this.sidenav && this.screenWidth <= 768) {
+      this.sidenav.close();
+    }
   }
 }

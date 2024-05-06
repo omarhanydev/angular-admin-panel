@@ -25,7 +25,7 @@ export class ProductsAddComponent {
     private productsService: ProductsService,
     private categoriesService: CategoriesService,
     private router: Router,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
   ) {
     this.addForm = this.formBuilder.group({
       title: ['', Validators.required],
@@ -47,7 +47,7 @@ export class ProductsAddComponent {
             String(response.error).slice(1)
           : null;
         if (message) {
-          this._snackBar.open(message, '', {
+          this.snackBar.open(message, '', {
             duration: 1200,
           });
         }
@@ -94,7 +94,7 @@ export class ProductsAddComponent {
               String(response.error).slice(1)
             : null;
           if (message) {
-            this._snackBar.open(message, '', {
+            this.snackBar.open(message, '', {
               duration: 1200,
             });
           }

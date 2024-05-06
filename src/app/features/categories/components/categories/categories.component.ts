@@ -20,7 +20,7 @@ export class CategoriesComponent {
   constructor(
     private productsService: ProductsService,
     private categoriesService: CategoriesService,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
   ) {
@@ -50,7 +50,7 @@ export class CategoriesComponent {
             String(response.error).slice(1)
           : null;
         if (message) {
-          this._snackBar.open(message, '', {
+          this.snackBar.open(message, '', {
             duration: 1200,
           });
         }

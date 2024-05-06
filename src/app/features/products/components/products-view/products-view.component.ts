@@ -5,19 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DeleteDialogComponent } from '../../../delete-dialog/delete-dialog.component';
-
-export interface Product {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  price: number;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-products-view',
@@ -27,7 +15,7 @@ export interface Product {
 export class ProductsViewComponent {
   constructor(
     private productsService: ProductsService,
-    private _snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     public dialog: MatDialog,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -62,7 +50,7 @@ export class ProductsViewComponent {
               String(response.error).slice(1)
             : null;
           if (message) {
-            this._snackBar.open(message, '', {
+            this.snackBar.open(message, '', {
               duration: 1200,
             });
           }
@@ -83,7 +71,7 @@ export class ProductsViewComponent {
         this.productsService.removeProduct(id).subscribe({
           next: (data: any) => {
             const message = data.title + ' - Deleted Successfully';
-            this._snackBar.open(message, '', {
+            this.snackBar.open(message, '', {
               duration: 1200,
             });
             this.router.navigate(['/products']);
@@ -94,7 +82,7 @@ export class ProductsViewComponent {
                 String(response.error).slice(1)
               : null;
             if (message) {
-              this._snackBar.open(message, '', {
+              this.snackBar.open(message, '', {
                 duration: 1200,
               });
             }

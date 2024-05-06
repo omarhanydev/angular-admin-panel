@@ -1,9 +1,12 @@
 <ng-container *ngIf="isAuthenticated">
   <app-header class="fixed"></app-header>
-  <app-sidebar class="full-height"></app-sidebar>
-  <main class="page">
-    <router-outlet></router-outlet>
-  </main>
+  <app-sidebar class="full-height">
+
+      <main class="page">
+        <router-outlet></router-outlet>
+      </main>
+
+  </app-sidebar>
 </ng-container>
 <ng-container *ngIf="!isAuthenticated">
   <router-outlet></router-outlet>

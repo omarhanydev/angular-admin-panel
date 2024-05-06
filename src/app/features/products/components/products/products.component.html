@@ -1,7 +1,7 @@
 <div class="listing-container">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xl-12">
+      <div class="col-lg-12">
         <div class="listing-header">
           <h1>Products</h1>
           <div class="listing-actions">
@@ -9,19 +9,17 @@
           </div>
         </div>
       </div>
-      <div class="col-xl-12">
-        <div class="loading-spinner" *ngIf="productsLoading && categoriesLoading">
-          <mat-spinner [diameter]="24"></mat-spinner>
-        </div>
+      <div class="col-lg-12">
+        <app-loading-spinner *ngIf="productsLoading && categoriesLoading"></app-loading-spinner>
         <div class="listing-filters" *ngIf="!productsLoading && !categoriesLoading">
           <form [formGroup]="filterForm">
             <div class="row">
-              <div class="col-xl-4">
+              <div class="col-lg-6 col-xl-4">
                 <app-form-group>
                   <app-input label="Filter by Name" [control]="title"></app-input>
                 </app-form-group>
               </div>
-              <div class="col-xl-4">
+              <div class="col-lg-6 col-xl-4">
                 <app-form-group>
                   <app-select [multiple]="true" label="Filter by Category" [control]="category" [options]="categories">
                   </app-select>

@@ -5,9 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProductsService {
-  products: any[] = [];
-  productsLoading: boolean = true;
-
   constructor(private http: HttpClient) {}
 
   fetchProducts() {
@@ -20,5 +17,13 @@ export class ProductsService {
 
   getProduct(id: number) {
     return this.http.get('https://fakestoreapi.com/products/' + id);
+  }
+
+  addProduct(data: any) {
+    return this.http.post('https://fakestoreapi.com/products/', data);
+  }
+
+  editProduct(id: number, data: any) {
+    return this.http.put('https://fakestoreapi.com/products/' + id, data);
   }
 }

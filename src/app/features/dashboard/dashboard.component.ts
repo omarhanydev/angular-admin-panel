@@ -10,6 +10,11 @@ import { CategoriesService } from '../categories/services/categories.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
+  products: any[] = [];
+  productsLoading: boolean = true;
+  categories: any[] = [];
+  categoriesLoading: boolean = true;
+
   constructor(
     private productsService: ProductsService,
     private categoriesService: CategoriesService,
@@ -17,11 +22,11 @@ export class DashboardComponent {
   ) {}
 
   ngOnInit() {
-    this.productsService.productsLoading = true;
+    this.productsLoading = true;
     this.productsService.fetchProducts().subscribe({
       next: (data: any) => {
-        this.productsService.products = data;
-        this.productsService.productsLoading = false;
+        this.products = data;
+        this.productsLoading = false;
       },
       error: (response: HttpErrorResponse) => {
         const message = response.error
@@ -35,11 +40,11 @@ export class DashboardComponent {
         }
       },
     });
-    this.categoriesService.categoriesLoading = true;
+    this.categoriesLoading = true;
     this.categoriesService.fetchCategories().subscribe({
       next: (data: any) => {
-        this.categoriesService.categories = data;
-        this.categoriesService.categoriesLoading = false;
+        this.categories = data;
+        this.categoriesLoading = false;
       },
       error: (response: HttpErrorResponse) => {
         const message = response.error
@@ -53,22 +58,6 @@ export class DashboardComponent {
         }
       },
     });
-  }
-
-  get products(): any[] {
-    return this.productsService.products;
-  }
-
-  get productsLoading(): boolean {
-    return this.productsService.productsLoading;
-  }
-
-  get categories(): any[] {
-    return this.categoriesService.categories;
-  }
-
-  get categoriesLoading(): boolean {
-    return this.categoriesService.categoriesLoading;
   }
 
   get currentDate(): string {

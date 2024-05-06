@@ -27,6 +27,10 @@ export class ProductsComponent {
     'actions',
   ];
   filterForm: FormGroup;
+  productsLoading: boolean = true;
+  products: any[] = [];
+  categories: any[] = [];
+  categoriesLoading: boolean = true;
 
   constructor(
     private productsService: ProductsService,
@@ -55,11 +59,11 @@ export class ProductsComponent {
   }
 
   reloadProducts() {
-    this.productsService.productsLoading = true;
+    this.productsLoading = true;
     this.productsService.fetchProducts().subscribe({
       next: (data: any) => {
-        this.productsService.products = data;
-        this.productsService.productsLoading = false;
+        this.products = data;
+        this.productsLoading = false;
       },
       error: (response: HttpErrorResponse) => {
         const message = response.error
@@ -75,11 +79,11 @@ export class ProductsComponent {
     });
   }
   reloadCategories() {
-    this.categoriesService.categoriesLoading = true;
+    this.categoriesLoading = true;
     this.categoriesService.fetchCategories().subscribe({
       next: (data: any) => {
-        this.categoriesService.categories = data;
-        this.categoriesService.categoriesLoading = false;
+        this.categories = data;
+        this.categoriesLoading = false;
       },
       error: (response: HttpErrorResponse) => {
         const message = response.error
@@ -129,16 +133,8 @@ export class ProductsComponent {
     });
   }
 
-  get products(): any[] {
-    return this.productsService.products;
-  }
-
-  get categories(): any[] {
-    return this.categoriesService.categories;
-  }
-
   get filteredProducts(): any[] {
-    let products = this.productsService.products;
+    let products = this.products;
     if (this.title?.value) {
       products = products.filter((p) =>
         p.title.toLowerCase().includes(this.title?.value.toLowerCase()),
@@ -152,9 +148,5 @@ export class ProductsComponent {
       });
     }
     return products;
-  }
-
-  get productsLoading(): boolean {
-    return this.productsService.productsLoading;
   }
 }

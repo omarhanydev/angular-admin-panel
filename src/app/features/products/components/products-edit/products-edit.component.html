@@ -1,1 +1,52 @@
-<p>products-edit works!</p>
+<div class="product-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="loading-spinner" *ngIf="productLoading">
+          <mat-spinner [diameter]="24"></mat-spinner>
+        </div>
+        <div *ngIf="!productLoading">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+            <div class="product-header">
+              <h1>Edit Product</h1>
+              <div class="product-actions">
+                <a mat-stroked-button routerLink="/products" color="accent">Cancel</a>
+                <button type="submit" mat-flat-button color="primary">Save</button>
+              </div>
+            </div>
+            <div class="product-form-card">
+              <div class="row">
+                <div class="col-xl-4">
+                  <app-form-group>
+                    <app-input label="Name" [required]="true" [control]="title"></app-input>
+                  </app-form-group>
+                </div>
+                <div class="col-xl-4">
+                  <app-form-group>
+                    <app-select label="Category" [required]="true" [control]="category" [options]="categories">
+                    </app-select>
+                  </app-form-group>
+                </div>
+                <div class="col-xl-4">
+                  <app-form-group>
+                    <app-input label="Price" [required]="true" type="number" [control]="price" icon="attach_money"></app-input>
+                  </app-form-group>
+                </div>
+                <div class="col-xl-4">
+                  <app-form-group>
+                    <app-input label="Image URL" type="url" [control]="image"></app-input>
+                  </app-form-group>
+                </div>
+                <div class="col-xl-4">
+                  <app-form-group>
+                    <app-input label="Description" type="textarea" [control]="description"></app-input>
+                  </app-form-group>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

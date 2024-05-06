@@ -14,9 +14,23 @@ app-sidebar {
   left: 0;
   top: 48px;
   z-index: 200;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+body.show-sidebar {
+  app-sidebar {
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
 }
 
 .page {
   min-height: calc(100vh - 48px);
   padding-left: 250px;
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 }

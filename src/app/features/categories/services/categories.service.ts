@@ -5,9 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class CategoriesService {
-  categories: any[] = [];
-  categoriesLoading: boolean = true;
-
   constructor(private http: HttpClient) {}
 
   fetchCategories() {

@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { SelectComponent } from './select/select.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [FormGroupComponent, InputComponent, SelectComponent],
@@ -19,6 +20,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
+    MatIconModule,
   ],
 })
 export class AppFormsModule {}

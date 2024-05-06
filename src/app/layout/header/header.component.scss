@@ -5,6 +5,12 @@ mat-toolbar {
   .header-spacer {
     flex: 1 1 auto;
   }
+  .header-sidebar-btn {
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
   .header-btn {
     border: 0;
     padding: 0;

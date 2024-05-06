@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { AuthService } from '../../auth/services/auth.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,17 @@ import { AuthService } from '../../auth/services/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    @Inject(DOCUMENT) private document: Document,
+  ) {}
 
   logout() {
     this.authService.logout();
+  }
+
+  toggleSidebar() {
+    this.document.body.classList.toggle('show-sidebar');
   }
 
   get user() {

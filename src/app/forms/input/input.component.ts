@@ -11,4 +11,5 @@ export class InputComponent {
   @Input() control: FormControl = new FormControl<any>('');
   @Input() type: string = 'text';
   @Input() required: boolean = false;
+  @Input() icon: string = '';
 }

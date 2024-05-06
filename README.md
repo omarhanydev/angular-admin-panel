@@ -1,6 +1,6 @@
 # Admin Panel using Angular 16
 
-A simple dashboard created with Angular 16, Angular Material, Bootstrap grid and Fake API calls
+A simple dashboard with Authentication and Routing created with Angular 16, Angular Material, Bootstrap grid and Fake API calls.
 
 ## Demo
 
